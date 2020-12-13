@@ -1,0 +1,27 @@
+{% extends 'Poll/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block title %}
+View Result
+{% endblock title %}
+{% block card-header %}
+     <h3> Polls Result</h3>                    
+{% endblock card-header %} 
+ {% block content %}
+  <div class="row">
+      <div class="col-md-12">
+          <p class="text-secondary fs-4">{{poll.question}}</p>
+      </div>
+  </div>
+  <div class="row">
+    <ul class="list-group">
+        <li class="list-group-item">{{poll.option_one}}&mdash;<span class="badge bg-secondary">{{poll.option_one_count}}</span></li>
+        <li class="list-group-item">{{poll.option_two}}&mdash;<span class="badge bg-secondary">{{poll.option_two_count}}</span></li>
+        <li class="list-group-item">{{poll.option_three}}&mdash;<span class="badge bg-secondary">{{poll.option_three_count}}</span></li>
+        <li class="list-group-item">
+            <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Total &mdash; {{poll.total}}</a></li>
+    </ul>
+
+  </div>
+{% endblock content %} 

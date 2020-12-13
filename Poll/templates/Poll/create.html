@@ -1,0 +1,49 @@
+{% extends 'Poll/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block title %}
+Create Polls
+{% endblock title %}
+
+{% block card-header %}
+     <h3>Create Polls</h3>                    
+{% endblock card-header %} 
+{% block content %}
+
+<form action="" method='POST'>
+    {% csrf_token  %}
+    <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="question" class="form-label">Enter Poll Question</label>
+            {% render_field form.question class='form-control' rows='3' %}
+          </div>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+            <div class="form-group">
+                <label for="option_one" class="form_label">Option 1</label>
+               {% render_field form.option_one class='form-control' %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="option_two" class="form_label">Option 2</label>
+                {% render_field form.option_two class='form-control' %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="option_three" class="form_label">Option 3</label> 
+                {% render_field form.option_three class='form-control' %}
+            </div> 
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-success btn-m mt-1">submit</button>
+    </div>
+   
+</form>
+{% endblock content %}

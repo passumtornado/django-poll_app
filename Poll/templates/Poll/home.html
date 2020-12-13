@@ -1,0 +1,22 @@
+{% extends 'Poll/base.html' %}
+
+{% block title %}
+Poll Application
+{% endblock title %}
+{% block card-header %}
+     <h3>Available Polls</h3>                    
+{% endblock card-header %} 
+
+{% block content %}
+<ul class="list-group">
+    {% for poll in polls %}
+    <li class="list-group-item">
+        <strong>{{poll.question}}</strong>
+        <span class="float-end">
+            <a href="{% url 'vote_page' poll.id %}" class="btn btn-info btn-xs">vote</a> &nbsp;
+            <a href="{% url 'result_page' poll.id %}" class="btn btn-secondary btn-xs">view result</a> &nbsp;
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
